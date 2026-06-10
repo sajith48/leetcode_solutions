@@ -31,6 +31,22 @@
 <strong>Explanation:</strong>
 - 4 is not found in nums. Thus, 4 is returned.
 </pre>
+## Algorithm: Remainder Tracking (Modulo 3)
+
+### Approach:
+1. **Initialize a counter** `operations` to `0` to keep track of the total moves required.
+2. **Iterate through each number** in the given `nums` array using an enhanced for-loop.
+3. **Check divisibility**: For each element, check if it is divisible by 3 using the modulo operator (`num % 3 != 0`).
+4. **Calculate operations**: 
+   - If the remainder is `1` (e.g., 4), we subtract 1 to make it 3 (Takes 1 operation).
+   - If the remainder is `2` (e.g., 5), we add 1 to make it 6 (Takes 1 operation).
+   - Therefore, any number not divisible by 3 always requires exactly **1 operation**.
+5. **Increment and Return**: Increment the `operations` counter by 1 for every non-divisible number, and return the total count.
+
+### Complexity Analysis:
+- **Time Complexity:** **O(N)** — Where N is the number of elements in the array. We loop through the array exactly once.
+- **Space Complexity:** **O(1)** — We only use a single integer variable (`operations`) for tracking, consuming constant extra space.
+
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
