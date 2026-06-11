@@ -20,6 +20,14 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 <strong>Input:</strong> s = &quot;azxxzy&quot;
 <strong>Output:</strong> &quot;ay&quot;
 </pre>
+### Algorithm: Stack-Based Duplicate Removal
+
+1. **Initialize Stack**: Create a `Stack<Character>` to keep track of valid characters.
+2. **Iterate**: Loop through each character `a` of the input string:
+   * **Match Found**: If the stack is not empty and `a` equals the top element (`st.peek()`), remove the top element using `st.pop()`.
+   * **No Match**: Otherwise, insert `a` into the stack using `st.push(a)`.
+3. **Build Result**: Transfer all remaining characters from the stack to a `StringBuilder`.
+4. **Final Output**: Reverse the `StringBuilder` to correct the character order and return it as a string.
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
