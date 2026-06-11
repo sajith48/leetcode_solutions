@@ -23,6 +23,19 @@
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 </pre>
+## Algorithm: Dynamic Programming (Top-Down Memoization)
+
+### Approach:
+1. **State Optimization Cache**: Allocate a linear lookup array `dp` of size `n + 1` initialized completely with `-1` to track unvisited subproblem states.
+2. **Recursive Decomposition**: Define a helper routing function `check(n, dp)` to break down the main stair climbing problem into smaller recursive paths.
+3. **Base Case Confinement**: 
+   - If `n == 0` or `n == 1`, return `1`. This provides the foundational base value for calculating subsequent step additions and stops recursion safely before indices turn negative.
+4. **Cache Lookup (Memoization)**: Before triggering deeper recursive paths, check if `dp[n] != -1`. If true, return the cached value immediately to avoid redundant calculations.
+5. **Recurrence Relation**: If the state is uncomputed, solve it by summing the two preceding steps: `check(n - 1, dp) + check(n - 2, dp)`. Store this result directly inside `dp[n]` before returning it.
+
+### Complexity Analysis:
+- **Time Complexity:** **O(N)** — Without memoization, a standard recursive tree branches exponentially out to $O(2^N)$. Adding the `dp` cache ensures each distinct step value from $0$ to $N$ is computed exactly once, turning it into a linear run time.
+- **Space Complexity:** **O(N)** — Auxiliary memory space is scaled linearly due to the combination of the `dp` tracking array of size $N + 1$ and the internal execution stack frame overhead during recursion.
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
