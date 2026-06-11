@@ -36,6 +36,20 @@ The remaining words have a length of at least 3, so the first letter of each rem
 The word &quot;i&quot; has length 1, so it is lowercase.
 The remaining words have a length of at least 3, so the first letter of each remaining word is uppercase, and the remaining letters are lowercase.
 </pre>
+## Algorithm: Tokenization and Conditional Capitalization
+
+### Approach:
+1. **Normalization**: Convert the entire input string `title` to lowercase using `toLowerCase()` to handle any irregular uppercase letters across words uniformly.
+2. **Tokenization**: Split the normalized string into an array of individual words (`String[] words`) using space (`" "`) as the delimiter.
+3. **Length Validation and Transformation**: Loop through each word in the array:
+   - Check the word length. If it is **2 characters or fewer**, leave it entirely in lowercase as required by the constraints.
+   - If the word is **longer than 2 characters**, extract its characters into a mutable character array using `toCharArray()`. Change the first character (`chars[0]`) to uppercase using `Character.toUpperCase()`, and convert it back into a string.
+4. **Reassembly**: Merge the processed array of words back into a single string using `String.join(" ", words)`, separating each word with a single space.
+
+### Complexity Analysis:
+- **Time Complexity:** **O(N)** — Where N is the total number of characters in the `title` string. Converting to lowercase, splitting, iterating through characters, and joining the strings all take linear time proportional to the string length.
+- **Space Complexity:** **O(N)** — We create an array of split words, separate character arrays, and a final reassembled string, which requires auxiliary space scaling linearly with the size of the input.
+
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
