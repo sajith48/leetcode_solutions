@@ -1,0 +1,18 @@
+// Last updated: 7/18/2026, 9:25:45 PM
+class Solution {
+    public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
+        int n = arr.length;
+        int[] counts = new int[n + 1];
+        
+        for (int num : arr) {
+            counts[Math.min(num, n)]++;
+        }
+        
+        int ans = 0;
+        for (int i = 1; i <= n; i++) {
+            ans = Math.min(ans + counts[i], i);
+        }
+        
+        return ans;
+    }
+}
